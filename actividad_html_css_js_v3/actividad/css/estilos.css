@@ -1,0 +1,217 @@
+/* ==========================================================
+   Hoja de estilos: Estructura básica de una página HTML
+   Archivo: css/estilos.css
+   Secciones: variables, reinicio, cuerpo, encabezado, foto,
+              contenido, pie de página y diseño adaptable
+   ========================================================== */
+
+/* ---------- Variables de color ---------- */
+:root {
+  --fondo: #0f172a;
+  --superficie: #1e293b;
+  --borde: #334155;
+  --texto: #e2e8f0;
+  --texto-suave: #94a3b8;
+  --acento: #38bdf8;
+  --acento-2: #f59e0b;
+  --sombra: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Reinicio general ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Cuerpo de la página ---------- */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto);
+  line-height: 1.7;
+}
+
+/* ---------- Encabezado ---------- */
+header {
+  background-color: var(--superficie);
+  border-bottom: 3px solid var(--acento);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--sombra);
+}
+
+header h1 {
+  color: var(--acento);
+  font-size: 2.2rem;
+  letter-spacing: 0.5px;
+}
+
+header p {
+  color: var(--texto-suave);
+  max-width: 560px;
+  margin: 0.6rem auto 0;
+  font-size: 1rem;
+}
+
+/* ---------- Sección de la foto ---------- */
+.foto {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem 1rem;
+}
+
+.foto figure {
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: var(--sombra);
+}
+
+.foto img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.foto figcaption {
+  margin-top: 0.8rem;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ---------- Contenido principal ---------- */
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+main h2 {
+  color: var(--acento);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--borde);
+}
+
+main p {
+  margin-bottom: 1rem;
+}
+
+main code {
+  background-color: var(--superficie);
+  color: var(--acento-2);
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+/* ---------- Pie de página ---------- */
+footer {
+  background-color: var(--superficie);
+  border-top: 3px solid var(--acento);
+  color: var(--texto-suave);
+  margin-top: 2rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ---------- Diseño adaptable (celulares) ---------- */
+@media (max-width: 600px) {
+  header {
+    padding: 1.8rem 1rem;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .foto img {
+    max-width: 240px;
+  }
+
+  main {
+    padding: 1.2rem 1rem;
+  }
+}
+
+/* ==========================================================
+   Estilos de los eventos de js/script.js
+   ========================================================== */
+
+/* Evento 1 (click): botón que cambia el tema */
+#btnTema {
+  margin-top: 1.2rem;
+  padding: 0.55rem 1.4rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--fondo);
+  background-color: var(--acento);
+  border: 2px solid var(--acento);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#btnTema:hover {
+  background-color: transparent;
+  color: var(--acento);
+}
+
+#btnTema:focus-visible {
+  outline: 3px solid var(--acento-2);
+  outline-offset: 3px;
+}
+
+/* Tema claro: cambia los colores de las variables */
+body.tema-claro {
+  --fondo: #f1f5f9;
+  --superficie: #ffffff;
+  --borde: #cbd5e1;
+  --texto: #0f172a;
+  --texto-suave: #475569;
+  --acento: #0369a1;
+  --acento-2: #c2410c;
+  --sombra: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+body,
+header,
+footer {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Evento 2 (dblclick): título interactivo */
+header h1 {
+  cursor: pointer;
+}
+
+header h1.titulo-alterno {
+  color: var(--acento-2);
+}
+
+/* Evento 3 (mouseover / mouseout): imagen resaltada */
+.foto img {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.foto img.resaltada {
+  transform: scale(1.12);
+  box-shadow: 0 0 24px var(--acento);
+}
+
+/* Evento 5 (resize): número del ancho en el pie de página */
+footer #ancho {
+  color: var(--acento);
+  font-weight: 700;
+}
